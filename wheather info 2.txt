@@ -1,0 +1,44 @@
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.*;
+
+public class Page2_CurrentWeather extends JFrame implements ActionListener {
+
+    JButton next;
+
+    Page2_CurrentWeather() {
+        setTitle("Current Weather");
+        setSize(400, 300);
+        setLayout(null);
+
+        JLabel label = new JLabel("Current Weather Details");
+        label.setFont(new Font("Arial", Font.BOLD, 16));
+        label.setBounds(100, 20, 250, 30);
+        add(label);
+
+        JLabel temp = new JLabel("Temperature: 30°C");
+        temp.setBounds(50, 80, 200, 30);
+        add(temp);
+
+        JLabel humidity = new JLabel("Humidity: 65%");
+        humidity.setBounds(50, 120, 200, 30);
+        add(humidity);
+
+        JLabel condition = new JLabel("Condition: Sunny");
+        condition.setBounds(50, 160, 200, 30);
+        add(condition);
+
+        next = new JButton("Next");
+        next.setBounds(140, 210, 100, 30);
+        add(next);
+
+        next.addActionListener(this);
+
+        setVisible(true);
+    }
+
+    public void actionPerformed(ActionEvent e) {
+        new Page3_Tips();
+        dispose();
+    }
+}

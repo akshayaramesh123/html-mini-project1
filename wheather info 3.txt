@@ -1,0 +1,42 @@
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.*;
+
+public class Page3_Tips extends JFrame implements ActionListener {
+
+    JButton next;
+
+    Page3_Tips() {
+        setTitle("Weather Tips");
+        setSize(400, 300);
+        setLayout(null);
+
+        JLabel label = new JLabel("Weather Safety Tips");
+        label.setFont(new Font("Arial", Font.BOLD, 16));
+        label.setBounds(120, 20, 200, 30);
+        add(label);
+
+        JTextArea tips = new JTextArea(
+                "- Drink plenty of water\n" +
+                "- Avoid direct sunlight\n" +
+                "- Wear light clothes\n" +
+                "- Use sunscreen"
+        );
+        tips.setBounds(50, 80, 300, 120);
+        tips.setEditable(false);
+        add(tips);
+
+        next = new JButton("Next");
+        next.setBounds(140, 220, 100, 30);
+        add(next);
+
+        next.addActionListener(this);
+
+        setVisible(true);
+    }
+
+    public void actionPerformed(ActionEvent e) {
+        new Page4_About();
+        dispose();
+    }
+}

@@ -1,0 +1,48 @@
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.*;
+
+public class Page1_Info extends JFrame implements ActionListener {
+
+    JButton next;
+
+    Page1_Info() {
+        setTitle("Weather Condition - Info");
+        setSize(500, 400);
+        setLayout(null);
+
+        JLabel title = new JLabel("Weather Condition Information System");
+        title.setFont(new Font("Arial", Font.BOLD, 18));
+        title.setBounds(50, 30, 400, 30);
+        add(title);
+
+        JTextArea info = new JTextArea(
+                "Weather refers to the day-to-day conditions\n" +
+                "of the atmosphere such as temperature,\n" +
+                "humidity, rainfall and wind.\n\n" +
+                "This project provides basic weather\n" +
+                "information using Java GUI."
+        );
+        info.setBounds(50, 80, 380, 150);
+        info.setEditable(false);
+        add(info);
+
+        next = new JButton("Next");
+        next.setBounds(180, 260, 100, 30);
+        add(next);
+
+        next.addActionListener(this);
+
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setVisible(true);
+    }
+
+    public void actionPerformed(ActionEvent e) {
+        new Page2_CurrentWeather();
+        dispose();
+    }
+
+    public static void main(String[] args) {
+        new Page1_Info();
+    }
+}

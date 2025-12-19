@@ -1,0 +1,40 @@
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.*;
+
+public class Page4_About extends JFrame implements ActionListener {
+
+    JButton exit;
+
+    Page4_About() {
+        setTitle("About Project");
+        setSize(400, 300);
+        setLayout(null);
+
+        JLabel label = new JLabel("About This Project");
+        label.setFont(new Font("Arial", Font.BOLD, 16));
+        label.setBounds(120, 20, 200, 30);
+        add(label);
+
+        JTextArea about = new JTextArea(
+                "Mini Project on Weather Condition\n" +
+                "Developed using Java Swing\n" +
+                "For Academic Purpose"
+        );
+        about.setBounds(60, 80, 280, 100);
+        about.setEditable(false);
+        add(about);
+
+        exit = new JButton("Exit");
+        exit.setBounds(140, 200, 100, 30);
+        add(exit);
+
+        exit.addActionListener(this);
+
+        setVisible(true);
+    }
+
+    public void actionPerformed(ActionEvent e) {
+        System.exit(0);
+    }
+}
